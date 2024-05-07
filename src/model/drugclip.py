@@ -229,4 +229,3 @@ class DrugCLIPReg(DrugCLIP):
             torch.cat([mol_rep.detach(), pocket_rep.detach()], dim=-1)
         ).squeeze(-1)
         return {"logit": logit}
-

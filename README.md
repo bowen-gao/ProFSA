@@ -52,7 +52,7 @@ cd ProFSA
 
 **2. Prepare the dataset and pretrained weights**
 
-Download the [profsa.tar.gz](https://drive.google.com/file/d/1lFBe4ak7QXS4LS-qAemvWJatT9AL8huf/view?usp=drive_link) and decompress it under the `data` directory. 
+Download the [profsa.tar.gz](https://drive.google.com/file/d/1lFBe4ak7QXS4LS-qAemvWJatT9AL8huf/view?usp=drive_link) and decompress it under the `data` directory.
 
 ```
 mkdir data
@@ -120,7 +120,7 @@ make in
 ## Training
 
 In the container, train a model by run:
-  
+
 ```bash
 zsh scripts/train/train_base.sh
 ```
