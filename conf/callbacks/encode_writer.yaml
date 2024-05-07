@@ -1,0 +1,3 @@
+encode_writer:
+  _target_: src.callbacks.encode_writer.EncodeWriter
+  output_dir: /data/rag/pocket_ebds

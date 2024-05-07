@@ -1,0 +1,13 @@
+_target_: src.dataset.pocket.PocketDataModule
+num_workers: 8
+pin_memory: true
+batch_size: 16
+dataset_type: pocket
+dataset_cfg:
+  data_path: /data/dataset/pocket_matching/p5_pockets.lmdb
+  dict_dir: ${model.cfg.data_dir}
+  pocket_dict_file: ${model.cfg.pocket_dict_file}
+  label_path: /data/dataset/pocket_matching/P5.pkl
+  max_pocket_atoms: 256
+  max_seq_len: 512
+  seed: ${seed}

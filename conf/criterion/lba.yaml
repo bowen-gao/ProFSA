@@ -1,0 +1,3 @@
+_target_: src.criterion.lba.LBACriterion
+loss:
+  _target_: torch.nn.MSELoss

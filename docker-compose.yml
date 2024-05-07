@@ -1,0 +1,57 @@
+version: "3.9"
+services:
+  project:
+    container_name: ${PROJECT}_${USER_NAME}
+    runtime: nvidia
+    build:
+      context: docker/
+      dockerfile: Dockerfile
+      args:
+        - USER_ID=${UID}
+        - GROUP_ID=${GID}
+        - USER_NAME=${USER_NAME}
+        - http_proxy=${http_proxy}
+        - https_proxy=${https_proxy}
+    image: ${PROJECT}:${USER_NAME}
+    environment:
+      - TZ=Asia/Shanghai
+      - TORCH_HOME=/data/torch_model
+      - HF_HOME=/data/pretrain/transformers
+      - HF_ENDPOINT=https://hf-mirror.com
+      - DISPLAY=${DISPLAY}
+
+    # change hostname to docker
+    hostname: docker
+    extra_hosts:
+      docker: 127.0.0.1
+
+    # Use the host system’s IPC namespace.
+    # https://docs.docker.com/engine/reference/run/#ipc-settings---ipc
+    ipc: host
+
+    # Use the host's network stack inside the container.
+    # (directly mapping ports in container to host)
+    # https://docs.docker.com/engine/reference/run/#network-settings
+    network_mode: host
+
+    working_dir: /project
+
+    # command: ["sleep", "infinity"]
+    command: >
+      bash -c
+      "sudo rsync -a --stats --chown=${USER_NAME}:${USER_NAME} --ignore-existing
+      /${USER_NAME}_home_bak/ ${TARGET_HOME}
+      && . ${TARGET_HOME}/.bashrc
+      && sleep infinity"
+
+    # mount the <directory in host> to the <directory in container>
+    # add more mounts here if you need
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock # run docker in docker
+      - ${CODE_ROOT}:/project
+      - ${DATA_ROOT}:/data
+      - ${LOG_ROOT}:/log
+      - type: bind
+        source: ${CONTAINER_HOME}
+        target: ${TARGET_HOME}
+      - /tmp/.X11-unix:/tmp/.X11-unix

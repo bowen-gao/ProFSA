@@ -1,0 +1,50 @@
+_target_: src.model.drugclip.DrugCLIP
+cfg:
+  data_dir: /data/dataset/train
+  mol_dict_file: dict_mol.txt
+  pocket_dict_file: dict_pkt.txt
+  logit_scale: 14.0
+  mol:
+    pretrained_weights: /data/pretrain/mol_pre_no_h_220816.pt
+    fixed: true
+    encoder_layers: 15
+    encoder_embed_dim: 512
+    encoder_ffn_embed_dim: 2048
+    encoder_attention_heads: 64
+    dropout: 0.1
+    emb_dropout: 0.1
+    attention_dropout: 0.1
+    activation_dropout: 0.0
+    pooler_dropout: 0.0
+    max_seq_len: 512
+    activation_fn: gelu
+    pooler_activation_fn: tanh
+    post_ln: false
+    masked_token_loss: -1.0
+    masked_coord_loss: -1.0
+    masked_dist_loss: -1.0
+    x_norm_loss: -1.0
+    delta_pair_repr_norm_loss: -1.0
+    mode: train
+  pocket:
+    pretrained_weights: null
+    fixed: false
+    encoder_layers: 15
+    encoder_embed_dim: 512
+    encoder_ffn_embed_dim: 2048
+    encoder_attention_heads: 64
+    dropout: 0.1
+    emb_dropout: 0.1
+    attention_dropout: 0.1
+    activation_dropout: 0.0
+    pooler_dropout: 0.0
+    max_seq_len: 512
+    activation_fn: gelu
+    pooler_activation_fn: tanh
+    post_ln: false
+    masked_token_loss: -1.0
+    masked_coord_loss: -1.0
+    masked_dist_loss: -1.0
+    x_norm_loss: -1.0
+    delta_pair_repr_norm_loss: -1.0
+    mode: train

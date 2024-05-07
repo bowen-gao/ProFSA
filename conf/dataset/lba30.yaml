@@ -1,0 +1,50 @@
+_target_: src.dataset.profsa.ProFSADataModule
+num_workers: 8
+pin_memory: true
+batch_size:
+  train: 16
+  val: 64
+  test: 64
+dataset_cfg:
+  train:
+    data_dir: /data/dataset/lba_identity_30
+    data_file: train.lmdb
+    mol_dict_file: dict_mol.txt
+    pocket_dict_file: dict_pkt.txt
+    max_pocket_atoms: 256
+    max_seq_len: 512
+    shuffle: true
+    seed: ${seed}
+    ligand_atoms_key: atoms
+    ligand_coord_key: coordinates
+    pocket_atoms_key: pocket_atoms
+    pocket_coord_key: pocket_coordinates
+    affinity_key: label
+  val:
+    data_dir: ${..train.data_dir}
+    data_file: valid.lmdb
+    mol_dict_file: ${..train.mol_dict_file}
+    pocket_dict_file: ${..train.pocket_dict_file}
+    max_pocket_atoms: ${..train.max_pocket_atoms}
+    max_seq_len: ${..train.max_seq_len}
+    shuffle: false
+    seed: ${seed}
+    ligand_atoms_key: ${..train.ligand_atoms_key}
+    ligand_coord_key: ${..train.ligand_coord_key}
+    pocket_atoms_key: ${..train.pocket_atoms_key}
+    pocket_coord_key: ${..train.pocket_coord_key}
+    affinity_key: ${..train.affinity_key}
+  test:
+    data_dir: ${..train.data_dir}
+    data_file: test.lmdb
+    mol_dict_file: ${..train.mol_dict_file}
+    pocket_dict_file: ${..train.pocket_dict_file}
+    max_pocket_atoms: ${..train.max_pocket_atoms}
+    max_seq_len: ${..train.max_seq_len}
+    shuffle: false
+    seed: ${seed}
+    ligand_atoms_key: ${..train.ligand_atoms_key}
+    ligand_coord_key: ${..train.ligand_coord_key}
+    pocket_atoms_key: ${..train.pocket_atoms_key}
+    pocket_coord_key: ${..train.pocket_coord_key}
+    affinity_key: ${..train.affinity_key}

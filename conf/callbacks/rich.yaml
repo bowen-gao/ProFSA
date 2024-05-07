@@ -1,0 +1,2 @@
+rich:
+  _target_: lightning.pytorch.callbacks.RichProgressBar

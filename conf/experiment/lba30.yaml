@@ -1,0 +1,30 @@
+# @package _global_
+name: lba30_finetune
+notes: "Reproduce the results of ProfSA on LBA."
+
+defaults:
+  - override /model: drugclip_reg
+  - override /scheduler: polynomial_decay
+  - override /pipeline: lba
+  - override /criterion: lba
+  - override /dataset: lba30
+
+run_test: true
+
+trainer:
+  devices: 4
+  precision: 32
+  max_epochs: 50
+
+model:
+  cfg:
+    pretrained_weights: "/log/train/profsa/ProFSADataModule.DrugCLIP.ScreeningCriterion.2024-01-08_21-48-13/checkpoints/epoch=076-step=438746.ckpt"
+    pretrained_fixed: true
+
+callbacks:
+  checkpoint:
+    monitor: "val/RMSE"
+    mode: "min"
+
+scheduler:
+  num_warmup_steps: 200

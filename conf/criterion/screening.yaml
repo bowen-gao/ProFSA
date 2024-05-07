@@ -1,0 +1,3 @@
+_target_: src.criterion.screening.ScreeningCriterion
+loss:
+  _target_: src.criterion.loss.InBatchSoftmax

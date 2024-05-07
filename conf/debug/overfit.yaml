@@ -1,0 +1,11 @@
+# @package _global_
+
+# overfits to 3 batches
+
+defaults:
+  - default.yaml
+  - override /logging: [csv, wandb]
+
+trainer:
+  max_epochs: 20
+  overfit_batches: 3

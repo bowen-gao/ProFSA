@@ -1,0 +1,13 @@
+defaults:
+  - _self_
+  - callbacks: [encode_writer]
+  - dataset: pdbbind
+
+output_dir: /data/rag/pocket_ebds
+log_dir: /log/train/profsa_thc/ProFSADataModule.DrugCLIP.ScreeningCriterion.2024-01-30_13-51-47
+
+ckpt: best
+trainer:
+  devices: [7]
+
+seed: 1

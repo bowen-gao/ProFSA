@@ -1,0 +1,58 @@
+#!/usr/bin/env bash
+
+USER=$USER
+HOME=$HOME
+
+while [[ "$#" -gt 0 ]]; do
+    case $1 in
+        --user) USER="$2"; shift ;;
+        --home) HOME="$2"; shift ;;
+        *) echo "Unknown parameter passed: $1"; exit 1 ;;
+    esac
+    shift
+done
+
+echo "----------------------------------------------------"
+echo "Current User: $USER, Current Home: $HOME"
+echo "----------------------------------------------------"
+echo
+
+echo "----------------------------------------------------"
+echo "Copy conda, pip, tmux, zsh configurations into $HOME..."
+echo "----------------------------------------------------"
+echo "export PATH=$HOME/.local/bin:$PATH" >> ~/.zshrc
+rsync -a --stats --ignore-missing-args --chown=$USER:$USER \
+    /root/.conda \
+    /root/.condarc \
+    /root/.config \
+    /root/.zshrc \
+    /root/.oh-my-zsh \
+    /root/.tmux \
+    /root/.tmux.conf \
+    $HOME
+echo
+
+echo "----------------------------------------------------"
+echo "The directory structure of $HOME:"
+echo "----------------------------------------------------"
+ls -alh $HOME
+echo
+
+echo "----------------------------------------------------"
+if [ -x "$(command -v zsh)" ]; then
+    echo "Use zsh."
+    chsh -s `which zsh` $USER
+fi
+
+if [ -x "$(command -v conda)" ]; then
+    echo "Initialize conda."
+    conda init zsh bash
+fi
+echo "----------------------------------------------------"
+echo
+
+echo "----------------------------------------------------"
+echo "- Enjoy the new environment!                       -"
+echo "- Contact @hughplay if you encounter any problems. -"
+echo "----------------------------------------------------"
+echo

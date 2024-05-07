@@ -1,0 +1,12 @@
+_target_: src.dataset.pocket.PocketDataModule
+num_workers: 8
+pin_memory: true
+batch_size: 32
+dataset_type: pair_pocket
+dataset_cfg:
+  data_path: /data/dataset/pocket_matching/test_ligand.lmdb
+  dict_dir: ${model.cfg.data_dir}
+  pocket_dict_file: ${model.cfg.pocket_dict_file}
+  max_pocket_atoms: 256
+  max_seq_len: 512
+  seed: ${seed}

@@ -1,0 +1,8 @@
+wandb:
+  _target_: lightning.pytorch.loggers.WandbLogger
+  save_dir: ${paths.output_dir}
+  name: ${name}
+  version: ${exp_id}
+  project: ${project}
+  tags: []
+  notes: ${notes}
