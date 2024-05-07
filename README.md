@@ -50,7 +50,7 @@ git clone https://github.com/bowen-gao/ProFSA.git
 cd ProFSA
 ```
 
-**2. Prepare the dataset and pretrained weights**
+**2. Prepare the dataset and pretrained molecular encoder weights**
 
 Download the [profsa.tar.gz](https://drive.google.com/file/d/1lFBe4ak7QXS4LS-qAemvWJatT9AL8huf/view?usp=drive_link) and decompress it under the `data` directory.
 
@@ -60,7 +60,7 @@ cd data
 tar -zxvf profsa.tar.gz
 ```
 
-The pretrained weight [mol_pre_no_h_220816.pt](https://github.com/dptech-corp/Uni-Mol/releases/download/v0.1/mol_pre_no_h_220816.pt) comes from Uni-Mol repo.
+The pretrained weight for molecular encoder [mol_pre_no_h_220816.pt](https://github.com/dptech-corp/Uni-Mol/releases/download/v0.1/mol_pre_no_h_220816.pt) comes from Uni-Mol repo.
 
 
 After decompress the package, the directory structure should be like this:
