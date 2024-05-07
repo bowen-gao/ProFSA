@@ -40,7 +40,7 @@ git clone https://github.com/bowen-gao/ProFSA.git
 cd ProFSA
 ```
 
-**2. Prepare the dataset and **
+**2. Prepare the dataset and pretrained weights**
 
 Download the [profsa.tar.gz](https://drive.google.com/file/d/1lFBe4ak7QXS4LS-qAemvWJatT9AL8huf/view?usp=drive_link) and decompress it under the `data` directory. 
 
@@ -50,7 +50,10 @@ cd data
 tar -zxvf profsa.tar.gz
 ```
 
-The directory structure should be like this:
+The pretrained weight [mol_pre_no_h_220816.pt](https://github.com/dptech-corp/Uni-Mol/releases/download/v0.1/mol_pre_no_h_220816.pt) comes from Uni-Mol repo.
+
+
+After decompress the package, the directory structure should be like this:
 
 ```
 .
@@ -98,7 +101,7 @@ directory to be mounted to hongxin [container_home]:
 `/home/hongxin/code/profsa/profsa_git/container_home` does not exist in your machine. Create? [yes]:
 ```
 
-After `Creating xxx ... done`, the environment is ready. You can run the following command to enter the container:
+After `Creating xxx ... done`, the environment is ready. You can run the following command to go inside the container:
 
 ```bash
 make in
@@ -106,7 +109,7 @@ make in
 
 ## Training
 
-In the container, just run:
+In the container, train a model by run:
   
 ```bash
 zsh scripts/train/train_base.sh
@@ -123,7 +126,9 @@ python train.py experiment=base \
     trainer.devices="[4,5,6,7]"
 ```
 
-*The project is based on [DeepCodebase](https://github.com/hughplay/DeepCodebase) template.* You may need to learn some basic usage of [pytorch lightning](https://pytorchlightning.ai/) and [hydra](https://hydra.cc/) to better understand the code.
+> Note:
+*The project is based on [DeepCodebase](https://github.com/hughplay/DeepCodebase) template.*
+You may need to learn some basic usage of [Pytorch Lightning](https://pytorchlightning.ai/) and [Hydra](https://hydra.cc/) to better understand the code.
 
 
 ## Testing
