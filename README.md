@@ -107,7 +107,7 @@ Give a project name [profsa]:
 Code root to be mounted at /project [.]:
 Data root to be mounted at /data [./data]:
 Log root to be mounted at /log [./data/log]:
-directory to be mounted to hongxin [container_home]:
+directory to be mounted to xxx [container_home]:
 `/home/hongxin/code/profsa/profsa_git/container_home` does not exist in your machine. Create? [yes]:
 ```
 
