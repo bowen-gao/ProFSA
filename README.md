@@ -119,7 +119,7 @@ make in
 
 ## Training
 
-In the container, train a model by run:
+In the container, train a model by running:
 
 ```bash
 zsh scripts/train/train_base.sh
