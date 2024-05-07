@@ -91,6 +91,12 @@ After decompress the package, the directory structure should be like this:
 |       |-- train.lmdb
 |       `-- valid.lmdb
 |-- log
+|   `-- train
+|       `-- profsa
+|           `-- profsa_release
+|               |-- checkpoints
+|               |   `-- last.ckpt
+|               `-- config.yaml
 `-- pretrain
     `-- mol_pre_no_h_220816.pt
 ```
@@ -143,13 +149,15 @@ You may need to learn some basic knowledge about [Pytorch Lightning](https://pyt
 
 ## Testing
 
-To test the model on pocket matching task, you can run:
+**We have already include our trained model weights in [profsa.tar.gz](https://drive.google.com/file/d/1lFBe4ak7QXS4LS-qAemvWJatT9AL8huf/view?usp=drive_link), locating at `data/log`.**
+
+To test our trained model on pocket matching task, you can run:
 
 ```bash
 zsh scripts/test/test_profsa_base_pm.sh
 ```
 
-To test the model on ligand binding affinity prediction task, you can run:
+To test our trained model on ligand binding affinity prediction task, you can run:
 
 ```bash
 zsh scripts/test/test_profsa_base_lba.sh
