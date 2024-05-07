@@ -24,6 +24,16 @@ Official repository for ["Self-supervised Pocket Pretraining via Protein Fragmen
 
 Pocket representations play a vital role in various biomedical applications, such as druggability estimation, ligand affinity prediction, and de novo drug design. While existing geometric features and pretrained representations have demonstrated promising results, they usually treat pockets independent of ligands, neglecting the fundamental interactions between them. However, the limited pocket-ligand complex structures available in the PDB database (less than 100 thousand non-redundant pairs) hampers large-scale pretraining endeavors for interaction modeling. To address this constraint, we propose a novel pocket pretraining approach that leverages knowledge from high-resolution atomic protein structures, assisted by highly effective pretrained small molecule representations. By segmenting protein structures into drug-like fragments and their corresponding pockets, we obtain a reasonable simulation of ligand-receptor interactions, resulting in the generation of over 5 million complexes. Subsequently, the pocket encoder is trained in a contrastive manner to align with the representation of pseudo-ligand furnished by some pretrained small molecule encoders. Our method, named ProFSA, achieves state-of-the-art performance across various tasks, including pocket druggability prediction, pocket matching, and ligand binding affinity prediction. Notably, ProFSA surpasses other pretraining methods by a substantial margin. Moreover, our work opens up a new avenue for mitigating the scarcity of protein-ligand complex data through the utilization of high-quality and diverse protein structure databases.
 
+If you find this code useful, please consider star this repo and cite us:
+
+```
+@inproceedings{gao2024self,
+  title={Self-supervised Pocket Pretraining via Protein Fragment-Surroundings Alignment},
+  author={Gao, Bowen and Jia, Yinjun and Mo, YuanLe and Ni, Yuyan and Ma, Wei-Ying and Ma, Zhi-Ming and Lan, Yanyan},
+  booktitle={The Twelfth International Conference on Learning Representations},
+  year={2024}
+}
+```
 
 ## Dataset
 
@@ -127,8 +137,8 @@ python train.py experiment=base \
 ```
 
 > Note:
-*The project is based on [DeepCodebase](https://github.com/hughplay/DeepCodebase) template.*
-You may need to learn some basic usage of [Pytorch Lightning](https://pytorchlightning.ai/) and [Hydra](https://hydra.cc/) to better understand the code.
+*This project is based on [DeepCodebase](https://github.com/hughplay/DeepCodebase) template.*
+You may need to learn some basic knowledge about [Pytorch Lightning](https://pytorchlightning.ai/) and [Hydra](https://hydra.cc/) to better understand the code.
 
 
 ## Testing
@@ -145,16 +155,6 @@ To test the model on ligand binding affinity prediction task, you can run:
 zsh scripts/test/test_profsa_base_lba.sh
 ```
 
+## LICENSE
 
-## Citation
-
-If you find this code useful, please consider star this repo and cite us:
-
-```
-@inproceedings{gao2024self,
-  title={Self-supervised Pocket Pretraining via Protein Fragment-Surroundings Alignment},
-  author={Gao, Bowen and Jia, Yinjun and Mo, YuanLe and Ni, Yuyan and Ma, Wei-Ying and Ma, Zhi-Ming and Lan, Yanyan},
-  booktitle={The Twelfth International Conference on Learning Representations},
-  year={2024}
-}
-```
+The code is licensed under the [MIT license](./LICENSE).
