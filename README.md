@@ -149,7 +149,7 @@ You may need to learn some basic knowledge about [Pytorch Lightning](https://pyt
 
 ## Testing
 
-**We have already include our trained model weights in [profsa.tar.gz](https://drive.google.com/file/d/1lFBe4ak7QXS4LS-qAemvWJatT9AL8huf/view?usp=drive_link), locating at `data/log`.**
+**We have already included our trained model weights in [profsa.tar.gz](https://drive.google.com/file/d/1lFBe4ak7QXS4LS-qAemvWJatT9AL8huf/view?usp=drive_link), locating at `data/log`.**
 
 To test our trained model on pocket matching task, you can run:
 
