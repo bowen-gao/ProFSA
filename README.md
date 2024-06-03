@@ -166,3 +166,16 @@ zsh scripts/test/test_profsa_base_lba.sh
 ## LICENSE
 
 The code is licensed under the [MIT license](./LICENSE).
+
+## Citation
+
+If you find our work useful, please cite our paper:
+
+```bibtex
+@inproceedings{gao2023self,
+  title={Self-supervised Pocket Pretraining via Protein Fragment-Surroundings Alignment},
+  author={Gao, Bowen and Jia, Yinjun and Mo, YuanLe and Ni, Yuyan and Ma, Wei-Ying and Ma, Zhi-Ming and Lan, Yanyan},
+  booktitle={The Twelfth International Conference on Learning Representations},
+  year={2023}
+}
+```
